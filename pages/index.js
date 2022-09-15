@@ -2,10 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import FoodForm from '../Components/FoodForm'
+import FoodCard from '../Components/FoodCard'
 import { useState } from 'react'
 export default function Home() {
 
   const [foodData, SetFoodData] = useState({})
+
   return (
     <div>
       <Head>
@@ -14,13 +16,21 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='flex justify-center items-center h-screen'>
+      <main className='flex flex-col justify-center items-center h-screen'>
         <div className='bg-slate-400 p-5 rounded-lg'>
           <FoodForm passData={SetFoodData}/>
 
 
         </div>
-        <p>{foodData.result?.results?.length}</p>
+        {
+          
+          foodData.result?.results.map(food =>{
+            return <FoodCard food={food} />
+          })
+
+
+        }
+        
 
 
 
