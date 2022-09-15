@@ -20,7 +20,7 @@ export default function Home() {
 
 
         </div>
-        <p>{foodData.cuisine}</p>
+        <p>{foodData.result?.results?.length}</p>
 
 
 

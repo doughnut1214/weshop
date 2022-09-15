@@ -43,8 +43,13 @@ const FoodForm = (props) => {
         fetch('/api/getfood',
             {
                 method: "POST",
-                body: JSON.stringify(formData)
+                body: JSON.stringify({ formData })
 
+            })
+            .then(res => res.json())
+            .then(data => {
+                props.passData(data)
+                console.log(data)
             })
 
     }
