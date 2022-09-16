@@ -5,7 +5,8 @@ import FoodForm from '../Components/FoodForm'
 import FoodCard from '../Components/FoodCard'
 import { useState } from 'react'
 export default function Home() {
-
+  //todo: build a new other page each of the foods link to, get food data by id to populate it using 
+  // https://api.spoonacular.com/recipes/{id}/information
   const [foodData, SetFoodData] = useState({})
 
   return (
@@ -16,16 +17,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className='flex flex-col justify-center items-center h-screen'>
+      <main className='flex flex-col justify-center items-center min-h-screen'>
         <div className='bg-slate-400 p-5 rounded-lg'>
           <FoodForm passData={SetFoodData}/>
 
 
         </div>
-        {
-          
+        { //if no data returned, display no food found
+          foodData.result?.results.length < 1 ? <h2>No food found</h2> : 
           foodData.result?.results.map(food =>{
-            return <FoodCard food={food} />
+            return <FoodCard key={food.id} food={food} />
           })
 
 

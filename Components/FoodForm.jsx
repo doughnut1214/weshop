@@ -42,7 +42,7 @@ const FoodForm = (props) => {
         SetIsLoading(true)
         console.log("data: ", formData)
         //props.passData(formData) Use this to pass the data from the below fetch to the parent 
-        fetch('/api/getfood',
+        fetch('/api/foods',
             {
                 method: "POST",
                 body: JSON.stringify({ formData })
