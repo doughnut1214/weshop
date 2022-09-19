@@ -19,7 +19,6 @@ function foodPage({ data }) {
         <h1 className='mt-10 text-2xl text-center'>{data.title}</h1>
         <img className="rounded-md" src={data.image}></img>
         {/* Dangerously setting inner html is the only way to let the markup work, as far as I know*/}
-        <div dangerouslySetInnerHTML={{__html:data["summary"]}}></div>
         <div className='flex flex-col lg:flex-row'>
           <div className=' bg-slate-400 text-white rounded-lg p-2 m-2'>
             <h2 className='text-center'>Ingredients:</h2>
@@ -60,7 +59,13 @@ function foodPage({ data }) {
 
 
         </div>
-        <p>{data.instructions}</p>
+        <div className=" bg-slate-400 text-white rounded-lg mb-2 p-2"dangerouslySetInnerHTML={{ __html: data["summary"] }}></div>
+        <div className=' bg-slate-400 text-white rounded-lg p-2'>
+          <h2 className='text-center'><b>Instructions</b></h2>
+          <p>{data.instructions}</p>
+
+
+        </div>
 
 
       </main>

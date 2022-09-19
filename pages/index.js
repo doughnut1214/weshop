@@ -9,7 +9,14 @@ export default function Home() {
   //todo: build a new other page each of the foods link to, get food data by id to populate it using 
   // https://api.spoonacular.com/recipes/{id}/information
   const [foodData, SetFoodData] = useState({})
+  //SetError passed into foodform as passError prop
+  const [error, SetError] = useState('')
 
+  if(error){
+    return(
+      <h1>Something went wrong!</h1>
+    )
+  }
   return (
     <div>
       <Head>
@@ -20,7 +27,7 @@ export default function Home() {
 
       <main className='flex flex-col justify-center items-center min-h-screen'>
         <div className='bg-slate-400 p-5 rounded-lg'>
-          <FoodForm passData={SetFoodData} />
+          <FoodForm passData={SetFoodData} passError={SetError} />
 
 
         </div>

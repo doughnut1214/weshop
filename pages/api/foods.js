@@ -7,16 +7,26 @@ export default async function handler(req, res) {
     &includeIngredients=${body.formData.ingredients}&instructionsRequired&maxCalories=${body.formData.maxCalories}&number=6&apiKey=${process.env.FOOD_API_KEY}`
   console.log("our url: ", url)
   
-  const result = await fetch(`${url}`, {
-    method: "GET", headers: {
-      'Content-Type': 'application/json'
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  })
-  const data = await result.json()
+  try{
+    const result = await fetch(`${url}`, {
+      method: "GET", headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
+    const data = await result.json()
+     
+    console.log("final data to send: ", data)
+    res.status(200).json({result: data})
    
-  console.log("final data to send: ", data)
-  res.status(200).json({result: data})
+  }
+  catch(error){
+    res.status(402).json("Failure to retrieve data")
+
+  }
+
+
+
 
 
 }

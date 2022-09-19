@@ -48,13 +48,23 @@ const FoodForm = (props) => {
                 body: JSON.stringify({ formData })
 
             })
-            .then(res => res.json())
+            .then(res => {
+                if(!res.ok){
+                    throw new Error("Status code bad")
+                }
+                else{
+                    return res.json()
+                }
+                
+            })
             .then(data => {
                 props.passData(data)
                 console.log(data)
                 SetIsLoading(false)
             })
-
+            .catch(error =>{
+                props.passError("Something went wrong!")
+            })
     }
     return (
         <>
