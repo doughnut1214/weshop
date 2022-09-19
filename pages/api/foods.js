@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   const body = JSON.parse(req.body)
 
   const url = `https://api.spoonacular.com/recipes/complexSearch?&query=${body.formData.cuisine}&diet=${body.formData.diet}
-    &includeIngredients=${body.formData.ingredients}&instructionsRequired&maxCalories=${body.formData.maxCalories}&number=3&apiKey=${process.env.FOOD_API_KEY}`
+    &includeIngredients=${body.formData.ingredients}&instructionsRequired&maxCalories=${body.formData.maxCalories}&number=6&apiKey=${process.env.FOOD_API_KEY}`
   console.log("our url: ", url)
   
   const result = await fetch(`${url}`, {

@@ -19,19 +19,23 @@ export default function Home() {
 
       <main className='flex flex-col justify-center items-center min-h-screen'>
         <div className='bg-slate-400 p-5 rounded-lg'>
-          <FoodForm passData={SetFoodData}/>
+          <FoodForm passData={SetFoodData} />
 
 
         </div>
-        { //if no data returned, display no food found
-          foodData.result?.results.length < 1 ? <h2>No food found</h2> : 
-          foodData.result?.results.map(food =>{
-            return <FoodCard key={food.id} food={food} />
-          })
+        <div className='flex flex-col lg:flex-row justify-center items-center w-4/5 lg:w3/4'>
+          { //if no data returned, display no food found
+            foodData.result?.results.length < 1 ? <h2>No food found</h2> :
+              foodData.result?.results.map(food => {
+                return <FoodCard key={food.id} food={food} />
+              })
 
 
-        }
-        
+          }
+
+
+        </div>
+
 
 
 
