@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import FoodForm from '../Components/FoodForm'
 import FoodCard from '../Components/FoodCard'
+
 import { useState } from 'react'
 export default function Home() {
   //todo: build a new other page each of the foods link to, get food data by id to populate it using 
