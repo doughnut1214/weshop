@@ -5,7 +5,7 @@ const FoodCard = ({ food }) => {
 
     return (
         <div className="h-full bg-slate-500 text-white m-2 p-2 rounded-lg text-center">
-            <Link href={`/foods/${food.id}`}><h1 className='underline text-slate-300 hover:text-slate-400 overflow-x-hidden'><a>{food.title}</a></h1></Link>
+            <Link href={`/foods/${food.id}`}><a><h1 className='underline text-slate-300 hover:text-slate-400 overflow-x-hidden'>{food.title}</h1></a></Link>
             <h2> {food.nutrition.nutrients[0]?.amount} calories</h2>
             <div className='justify-center flex mx-auto mt-3  drop-shadow-md'>
 
