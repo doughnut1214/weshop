@@ -18,6 +18,9 @@ export default async function handler(req, res) {
      
     console.log("final data to send: ", data)
     res.status(200).json({result: data})
+    //res.status(402).json("Failure to retrieve data")
+
+    
    
   }
   catch(error){

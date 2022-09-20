@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../../styles/Home.module.css'
 function foodPage({ data }) {
   if (!data) {
@@ -71,16 +72,7 @@ function foodPage({ data }) {
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
+        <Link href={`/`}><a><button className='rounded-lg bg-slate-500 active:bg-blue-200 hover:bg-blue-200 text-white p-2'>Return Home</button></a></Link>
       </footer>
     </div>
   )

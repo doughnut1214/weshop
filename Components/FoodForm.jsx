@@ -39,6 +39,8 @@ const FoodForm = (props) => {
     const HandleSubmit = (e) => {
         e.preventDefault()
         console.log("form submitted!")
+        //resets error on call
+        props.passError('')
         SetIsLoading(true)
         console.log("data: ", formData)
         //props.passData(formData) Use this to pass the data from the below fetch to the parent 
@@ -69,6 +71,9 @@ const FoodForm = (props) => {
     return (
         <>
             <form onSubmit={HandleSubmit} className=" flex-col p-3 rounded-lg">
+                <div className="flex-col flex text-center">
+                    <h1 className="text-2xl text-center mb-3">Recipe Finder</h1>
+                </div>
                 <div className="flex-col flex text-center">
                     <label htmlFor="cuisine">Type of Cuisine: </label>
                     <input type="text" className="rounded-md p-2 border-2" name="cuisine" onChange={e => ChangeCuisine(e)} placeholder="Italian" required />
